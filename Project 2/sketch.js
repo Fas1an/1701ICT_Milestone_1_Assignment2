@@ -70,5 +70,7 @@ function pieChart(diameter, data) {
         strokeWeight(0.5);
         arc(width / 2, height / 2.5, diameter, diameter, lastAngle, lastAngle + radians(CircleAngles[i]));
         lastAngle += radians(CircleAngles[i]);
+        // }
+        console.log('hi')
     }
-};
+}
