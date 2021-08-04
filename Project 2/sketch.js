@@ -29,7 +29,7 @@ var names = [
     'Romance',
     'Drama',
     'SciFi'
-]
+];
 var AngleColours = [
     [255, 0, 0], //colour 1
     [0, 255, 0], //colour 2
@@ -46,7 +46,7 @@ function setup() {
     noLoop();
     textSize(35);
     textAlign(CENTER, CENTER);
-}
+};
 
 function draw() {
     //background square
@@ -60,7 +60,7 @@ function draw() {
         fill(255)
         text(names[x], (x * 150 + 75), 680)
     }
-}
+};
 
 function pieChart(diameter, data) {
     var lastAngle = 0;
@@ -71,4 +71,4 @@ function pieChart(diameter, data) {
         arc(width / 2, height / 2.5, diameter, diameter, lastAngle, lastAngle + radians(CircleAngles[i]));
         lastAngle += radians(CircleAngles[i]);
     }
-}
+};

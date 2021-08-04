@@ -4,7 +4,7 @@ function setup() {
 
 function draw() {
     //background square
-    noStroke()
+    noStroke();
     fill(105, 106, 225);
     rectMode(CORNER);
     rect(0, 0, 500, 120);
