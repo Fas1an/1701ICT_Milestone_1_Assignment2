@@ -1,6 +1,6 @@
 var ang = 0
-var r = 1
-var s = 1
+var r = 0.05
+var s = 0.05
 var cr1 = 75
 var cr2 = -75
 
