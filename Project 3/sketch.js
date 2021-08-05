@@ -3,8 +3,8 @@ var xcenter = 200;
 var ycenter = 200;
 
 //rotation speed
-var rs1 = 0.01;
-var rs2 = 0.02;
+var rs1 = 0.02;
+var rs2 = 0.01;
 
 //inner ball track - r1 = blue, r2 = red
 var r1 = 60;
@@ -29,16 +29,13 @@ function draw() {
     stroke(169, 169, 169);
     strokeWeight(40);
     ellipse(xcenter, ycenter, 200, 100);
-    //yellow line 1
-    fill(255, 255, 0, 0);
-    stroke(176, 178, 52);
-    strokeWeight(1);
-    ellipse(xcenter, ycenter, 200, 100);
-    //yellow line 2
-    fill(255, 255, 0, 0);
-    stroke(176, 178, 52);
-    strokeWeight(1);
-    ellipse(xcenter, ycenter, 210, 105);
+    for (var y1 = 0; y1 <= 5; y1 += 5) {
+        fill(255, 255, 0, 0);
+        stroke(255, 255, 0);
+        strokeWeight(1);
+        ellipse(xcenter, ycenter, 200 + y1, 100 + y1);
+    }
+    noStroke();
     //blue circle
     var rx2 = xcenter + r2 * cos(ra);
     var ry2 = ycenter + r1 * sin(ra);
@@ -53,6 +50,4 @@ function draw() {
     ellipse(rx1, ry1, 15, 15);
     //allows for rotation
     ba += rs2;
-
-
 }
