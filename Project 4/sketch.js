@@ -18,11 +18,12 @@ function draw() {
     ellipseMode(CENTER);
     translate(250, 250);
     arc(0, 0, 300, 300, 180 + r, 360 + r);
-    //150lack semi-circle
+
+    //black semi-circle
     fill(0);
     arc(0, 0, 300, 300, 0 + r, 180 + r);
 
-    //150lack semi-circle 2
+    //black semi-circle 2
     var cx = cr2 * cos(ang);
     var cy = cr2 * sin(ang);
     fill(0);

@@ -4,9 +4,11 @@ var Action = 5;
 var Romance = 6;
 var Drama = 1;
 var SciFi = 4;
+
 //total of data
 var totaldata = [Comedy + Action + Romance + Drama + SciFi];
 const totalangle = 360;
+
 // Angles inside Circle
 // (Given/Total Sum) * 360
 var ComedyAngle = (Comedy / totaldata) * totalangle;
@@ -41,7 +43,7 @@ var AngleColours = [
 function setup() {
     // put setup code here
     createCanvas(750, 700);
-    background(124, 94, 23);
+    background("black");
     noStroke();
     noLoop();
     textSize(35);
@@ -51,13 +53,13 @@ function setup() {
 function draw() {
     //background square
     pieChart(500, CircleAngles);
-    stroke(0)
+    stroke(0);
     strokeWeight(1);
-
+    //create legends : boxes plus name of boxes
     for (var x = 0; x <= 5; x += 1) {
         fill(AngleColours[x]);
         rect((x * 150 + 50), 600, 50, 50);
-        fill(255)
+        fill(255);
         text(names[x], (x * 150 + 75), 680)
     }
 };
