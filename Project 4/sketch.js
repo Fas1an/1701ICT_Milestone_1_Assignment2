@@ -40,6 +40,6 @@ function draw() {
     fill(0);
     ellipse(cx2, cy2, 50, 50);
 
-    ang += s;
-    r++;
+    ang += s; //angle change
+    r++; //rotation of arc
 }

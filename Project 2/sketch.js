@@ -41,7 +41,7 @@ var AngleColours = [
 function setup() {
     // put setup code here
     createCanvas(750, 700);
-    background(0, 0, 0);
+    background(124, 94, 23);
     noStroke();
     noLoop();
     textSize(35);
@@ -70,7 +70,5 @@ function pieChart(diameter, data) {
         strokeWeight(0.5);
         arc(width / 2, height / 2.5, diameter, diameter, lastAngle, lastAngle + radians(CircleAngles[i]));
         lastAngle += radians(CircleAngles[i]);
-        // }
-        console.log('hi')
     }
 }
