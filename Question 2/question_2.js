@@ -26,7 +26,7 @@ let CircleAngles = [
     SciFiAngle,
 ];
 var names = [
-    'Comedy',
+    'Comedy' + '-' + Comedy,
     'Action',
     'Romance',
     'Drama',

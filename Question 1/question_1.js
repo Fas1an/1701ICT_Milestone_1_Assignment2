@@ -17,3 +17,4 @@ function draw() {
         rect(x, 60, 70, 70, 15);
     }
 }
+
