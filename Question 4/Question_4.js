@@ -14,7 +14,7 @@ function setup() {
 
 function draw() {
     //white semi-circle
-    fill(255)
+    fill(255);
     ellipseMode(CENTER);
     translate(250, 250);
     arc(0, 0, 300, 300, 180 + r, 360 + r);
