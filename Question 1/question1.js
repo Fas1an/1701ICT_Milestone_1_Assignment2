@@ -44,6 +44,13 @@ function drawTrack(sceneContent) {
 let tw = width / 20
 let th = height / 20
 
+  for (var x = 0; x < 15; x ++)
+    for (var y = 0; y < 15; y ++){
+      let gameTrack = track[x][y];
+      
+  }
+
+
 console.log(tw)
 console.log(th)
 
