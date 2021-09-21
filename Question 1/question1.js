@@ -45,6 +45,7 @@ let tw = width / 20
 let th = height / 20
 
 console.log(tw)
+console.log(th)
 
 
 }
