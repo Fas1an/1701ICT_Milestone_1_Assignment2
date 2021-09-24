@@ -3,6 +3,12 @@ let grassImage;
 let roadImage;
 let carImage;
 let carSpeed = 1;
+let x =0
+const y = 0
+
+const trackSize = 20;
+
+
 
 
 function preload(){
@@ -19,13 +25,10 @@ function setup() {
   createCanvas(500, 500);
   background(0);
  
-  road = createSprite(200,200, 50, 50)
-  road.addImage(roadImage)
+  
 
 
-  grass = createSprite(150, 150, 50, 50)
-  grass.addImage(grassImage)
-
+  
  car = createSprite(150, 150, 50,50)
  car.addImage(carImage)
  car.rotateToDirection = true;
@@ -41,11 +44,21 @@ drive();
 }
 
 function drawTrack() {
+  let posX = 0;
+  let posY = 0;
 
   for ( let i = 0; i < track.length; i++){
       trackData = splitTokens(track[i], " ")
       console.log(trackData)
-  }
+
+     
+
+
+
+
+
+
+
 }
 
 
@@ -68,17 +81,3 @@ function drive(){
   }
 }
 
-
-
-/*
-  berlinLoc=loadStrings('TSP_EUC_Problems/berlin52.tsp');
-  berlinSol=loadStrings('TSP_Solutions/berlin52.sol');
-
-
-
-
-
-
-
-
-*/

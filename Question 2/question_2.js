@@ -6,13 +6,15 @@ let tspCoords;
 let cordX = [];
 let cordY = [];
 
-let width = 1800;
-let height = width * 0.77;
+let width = 1100;
+let height = 1200;
 
-
+let scale = 1.8; //berlin52
+//let scale = 0.75;//ch150
+//let scale = 0.3; //a280
 
 function preload() {
-  locations = loadStrings("TSP_EUC_Problems/ch150.tsp");
+  locations = loadStrings("TSP_EUC_Problems/berlin52.tsp");
   sol = loadStrings("TSP_Solutions/berlin52.sol");
 }
 
@@ -35,13 +37,17 @@ function loadTSP() {
    append(cordX, current_line[1]);
    append(cordY, current_line[2]);
   }
+
 }
 
 function showLoadedTSP() {
   fill(255)
   for( var i = 0; i < cordX.length; i ++ ){
-    ellipse(cordX[i], cordY[i], 10)
+    ellipse(75 + cordX[i]/scale, 100 + cordY[i]/scale, 10)
   }
+  textSize(30)
+  text(locations[0], 100, 1150);
+  text(locations[2], 400, 1150);
   
 }
 
