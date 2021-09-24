@@ -40,21 +40,12 @@ drive();
 
 }
 
-function drawTrack(sceneContent) {
-let tw = width / 20
-let th = height / 20
+function drawTrack() {
 
-  for (var x = 0; x < 15; x ++)
-    for (var y = 0; y < 15; y ++){
-      let gameTrack = track[x][y];
-      
+  for ( let i = 0; i < track.length; i++){
+      trackData = splitTokens(track[i], " ")
+      console.log(trackData)
   }
-
-
-console.log(tw)
-console.log(th)
-
-
 }
 
 
@@ -79,3 +70,15 @@ function drive(){
 
 
 
+/*
+  berlinLoc=loadStrings('TSP_EUC_Problems/berlin52.tsp');
+  berlinSol=loadStrings('TSP_Solutions/berlin52.sol');
+
+
+
+
+
+
+
+
+*/
