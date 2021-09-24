@@ -15,8 +15,8 @@ function preload(){
 track = loadStrings('track.txt')
 grassImage = loadImage('image/grass-texture.png')
 roadImage = loadImage('image/road-texture.png')
-carImage = loadImage('image/car.png')
-
+carImage = loadImage('image/car.png');
+finishImage = loadImage('image/finishline.png');
 }
 
 
@@ -46,20 +46,24 @@ drive();
 function drawTrack() {
   let posX = 0;
   let posY = 0;
-
-
   for ( let i = 0; i < track.length; i++){
       trackData = splitTokens(track[i], " ")
       console.log(trackData)
 
-     
-
-
-
-
-
-
-
+      for (let j =0; j < trackData.length; j++){
+        if (track[j] == 0){
+          grassImage.reszie(trackSize, trackSize);
+          grass = createSprite(posX, posY);
+          grass.addImage(grassImage)
+        } else if (track[j] == 1){
+          roadImage.reszie(trackSize, trackSize);
+          road = createSprite(posX, posY);
+          road.addImage(roadImage)
+        } else if (track[j] == 2){
+          finishImage.reszie(trackSize, trackSize);
+          finishImage = createSprite(posX, posY);
+          finish.addImage(finishImage)
+      }
 }
 
 
@@ -81,4 +85,5 @@ function drive(){
     car.setSpeed(carSpeed, car.getDirection() + 1.5);
   }
 }
+  }
 }
