@@ -47,6 +47,7 @@ function drawTrack() {
   let posX = 0;
   let posY = 0;
 
+
   for ( let i = 0; i < track.length; i++){
       trackData = splitTokens(track[i], " ")
       console.log(trackData)
@@ -80,4 +81,4 @@ function drive(){
     car.setSpeed(carSpeed, car.getDirection() + 1.5);
   }
 }
-
+}
