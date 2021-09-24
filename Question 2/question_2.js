@@ -32,10 +32,12 @@ function draw() {
 
 function loadTSP() {
   tspCoords = new Array(locations.length)
+ 
  for(let i = 6; i < locations.length; i ++){
    let current_line = locations[i].split(" ")
    append(cordX, current_line[1]);
    append(cordY, current_line[2]);
+   
   }
 
 }
@@ -63,3 +65,7 @@ function showSolution() {
   line(75 + cordX[i + 1]/scale, 100 + cordY[i  + 1]/scale, 75 + cordX[i]/scale, 100 + cordY[i]/scale);
    }
 }
+
+
+
+
