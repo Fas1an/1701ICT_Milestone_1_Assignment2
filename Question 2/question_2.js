@@ -42,7 +42,7 @@ function loadTSP() {
 
 function showLoadedTSP() {
   fill(255)
-  for( var i = 0; i < cordX.length; i ++ ){
+  for( var i = 0; i < cordX.length; i ++){
     ellipse(75 + cordX[i]/scale, 100 + cordY[i]/scale, 10)
   }
   textSize(30)
@@ -58,5 +58,8 @@ function loadSOL() {
   }
 
 function showSolution() {
- 
+  stroke(255);
+  for (let i = 1; i < sol.length; i++){
+  line(75 + cordX[i + 1]/scale, 100 + cordY[i  + 1]/scale, 75 + cordX[i]/scale, 100 + cordY[i]/scale);
+   }
 }

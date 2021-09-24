@@ -43,10 +43,9 @@ function drive() {
   }
 }
 
-
 function drawTrack() {
   let posX = 0;
-    let posY = 0;
+  let posY = 0;
   for (let i = 0; i < track.length; i++) {
     trackData = splitTokens(track[i], " ");
     for (let j = 0; j < trackData.length; j++) {
@@ -65,8 +64,8 @@ function drawTrack() {
       }
       console.log(trackData[j] == 2);
     }
-    posX += 40
+    posX += 40;
   }
-posX = 0
-posY += 40
+  posX = 0;
+  posY += 40;
 }
