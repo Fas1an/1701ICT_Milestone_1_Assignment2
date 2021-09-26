@@ -1,71 +1,110 @@
-let track;
-let grassImage;
-let roadImage;
-let carImage;
-let carSpeed = 1;
-let x = 0;
-const y = 0;
+let track = [];
 
-const trackSize = 20;
+let firstRun = true;
+let finishImage;
+let trackImage;
+let grassImage;
+
+let car;
+let carX;
+let carY;
+let posCx = 0;
+let posCy = 0;
+
+let speed = 0;
+let trackSize = 40;
+
+let direction = 0;
+let rotationSpeed = 1;
 
 function preload() {
-  track = loadStrings("track.txt");
-  grassImage = loadImage("image/grass-texture.png");
-  roadImage = loadImage("image/road-texture.png");
-  carImage = loadImage("image/car.png");
+  lines = loadStrings("track.txt");
   finishImage = loadImage("image/finishline.png");
+  grassImage = loadImage("image/grass-texture2.png");
+  roadImage = loadImage("image/road-texture.png");
+  carImage = loadImage("image/car2.png");
 }
 
 function setup() {
-  // put setup code here
-  createCanvas(500, 500);
-  background(0);
-  car = createSprite(150, 150, 50, 50);
-  car.addImage(carImage);
-  car.rotateToDirection = true;
+  createCanvas(800, 800);
+
+  outbond = new Group();
+  inbound = new Group();
+  drawTrack();
 }
 
 function draw() {
-  drawSprites();
-  drawTrack();
-  drive();
-}
-
-function drive() {
-  if (keyIsDown(UP_ARROW)) {
-    car.setSpeed(carSpeed + 0.5, car.getDirection());
-  } else if (keyIsDown(DOWN_ARROW)) {
-    car.setSpeed(carSpeed - 0.5, car.getDirection());
-  } else if (keyIsDown(LEFT_ARROW)) {
-    car.setSpeed(carSpeed, car.getDirection() - 1.5);
-  } else if (keyIsDown(RIGHT_ARROW)) {
-    car.setSpeed(carSpeed, car.getDirection() + 1.5);
-  }
+  drawCar();
+  drawSprites(outbond);
+  drawSprites(inbound);
+  drawSprite(car);
+  carReset();
 }
 
 function drawTrack() {
   let posX = 0;
   let posY = 0;
-  for (let i = 0; i < track.length; i++) {
-    trackData = splitTokens(track[i], " ");
-    for (let j = 0; j < trackData.length; j++) {
-      if (trackData[j] == 0) {
-        grassImage.resize(trackSize, trackSize);
-        grass = createSprite(posX, posY);
-        grass.addImage(grassImage);
-      } else if (trackData[j] == 1) {
-        roadImage.resize(trackSize, trackSize);
+  for (let y = 0; y < lines.length; y++) {
+    tokens = splitTokens(lines[y]);
+
+    for (let x = 0; x < tokens.length; x++) {
+      track[x] = int(tokens[x]);
+
+      if (track[x] == 1) {
         road = createSprite(posX, posY);
         road.addImage(roadImage);
-      } else if (trackData[j] == 2) {
-        finishImage.resize(trackSize, trackSize);
+        roadImage.resize(trackSize, trackSize);
+        inbound.add(road);
+      } else if (track[x] == 0) {
+        grass = createSprite(posX, posY);
+        grass.addImage(grassImage);
+        grassImage.resize(trackSize, trackSize);
+        outbond.add(grass);
+      } else if (track[x] == 2) {
         finish = createSprite(posX, posY);
         finish.addImage(finishImage);
+        finishImage.resize(trackSize, trackSize);
+        inbound.add(finish);
+        finish.rotation = 90;
+        if (firstRun) {
+          posCx = posX;
+          posCy = posY;
+          car = createSprite(posX, posY, 1, 1);
+          car.addImage(carImage);
+          carImage.resize(trackSize / 4, trackSize / 4);
+          car.rotateToDirection = true;
+          car.setVelocity(speed, 0);
+          firstRun = false;
+          car.rotation = 90;
+        }
       }
-      console.log(trackData[j] == 2);
+      posX += 40;
     }
-    posX += 40;
+    posX = 0;
+    posY += 40;
   }
-  posX = 0;
-  posY += 40;
+}
+
+function drawCar() {
+  if (keyDown(LEFT_ARROW)) car.rotation -= 4;
+  if (keyDown(RIGHT_ARROW)) car.rotation += 4;
+  if (keyDown(UP_ARROW)) {
+    car.addSpeed(0.02, car.rotation);
+    car.limitSpeed(2);
+  }
+  if (keyDown(DOWN_ARROW)) {
+    car.addSpeed(-0.2, car.rotation);
+    car.limitSpeed(0);
+  }
+}
+
+function carReset() {
+  if (car.collide(outbond)) {
+    car.remove();
+    car = createSprite(posCx, posCy);
+    car.addImage(carImage);
+    car.rotateToDirection = true;
+    car.setVelocity(speed, 0);
+    car.rotation = 90;
+  }
 }
