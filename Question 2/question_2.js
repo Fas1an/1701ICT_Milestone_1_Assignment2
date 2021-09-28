@@ -58,18 +58,23 @@ function loadSOL() {
     append(arr_Sol, sol[i])
   }
   }
-
-function showSolution() {
-  stroke(255);
-  for (let i = 1; i < sol.length; i++){
-  line(75 + cordX[i + 1]/scale, 100 + cordY[i  + 1]/scale, 75 + cordX[i]/scale, 100 + cordY[i]/scale);
-   }
-}
-
-
-function animation()[
+  function showSolution() {
+    stroke(255);
+    for (let i = 1; i < sol.length; i++) {
+      line(
+        75 + cordX[i + 1] / scale,
+        100 + cordY[i + 1] / scale,
+        75 + cordX[i] / scale,
+        100 + cordY[i] / scale
+      );
+    }
+    fill(255);
+    frameRate(2)
+    ellipse(75 + cordX[animate]/scale, 100 + cordY[animate]/scale, 20);
+    animate = animate + 0.5;
+    if (animate == 51);
+  }
   
-]
 
 
 
